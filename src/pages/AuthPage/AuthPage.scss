@@ -1,0 +1,169 @@
+.wrapperAuthPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  padding-bottom: 92px;
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 222px;
+    content: "";
+    background-color: var(--teal-lighter);
+  }
+  .header {
+    margin: 27px auto 28px;
+    width: 1050px;
+    min-height: 39px;
+    display: flex;
+    align-items: center;
+    .headerTitle {
+      margin-left: 14px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: normal;
+      color: var(--white);
+      text-transform: uppercase;
+      vertical-align: middle;
+    }
+  }
+  .window {
+    margin-right: auto;
+    margin-left: auto;
+    background-color: var(--white);
+    border-radius: 3px;
+    box-shadow: 0 17px 50px 0 rgba(11, 20, 26, 0.19),
+      0 12px 15px 0 rgba(11, 20, 26, 0.24);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    max-width: 1050px;
+    width: 1000px;
+    overflow: hidden;
+    .main {
+      padding: 64px 60px 110px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .textWrapper {
+        .h1Main {
+          margin-bottom: 52px;
+          font-size: 28px;
+          font-weight: 300;
+          line-height: normal;
+          color: #41525d;
+        }
+        ol {
+          padding: 0 0 0 24px;
+          li:not(:first-child) {
+            margin-top: 18px;
+          }
+          li {
+            font-size: 18px;
+            line-height: 28px;
+            color: var(--gray-700);
+            strong {
+              display: inline-block;
+              font-weight: 500;
+              line-height: 24px;
+              svg {
+                vertical-align: top;
+                margin-left: 5px;
+              }
+            }
+          }
+        }
+        a {
+          text-decoration: none;
+          font-size: 14px;
+          line-height: 1;
+          color: var(--teal);
+        }
+      }
+      .qrCodeWrapper {
+        margin-top: -67px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .checkbox {
+          font-size: 14px;
+          line-height: 1;
+          color: rgba(var(--black-rgb), 0.45);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          input {
+            cursor: pointer;
+            position: relative;
+          }
+        }
+        .popupWindow {
+          padding: 10px 15px;
+          background-color: var(--blue-light);
+          border-radius: 6px;
+          box-shadow: 0 2px 6px rgba(var(--black-rgb), 0.15);
+          position: absolute;
+          top: 25px;
+          left: -13px;
+          display: inline-block;
+          width: 250px;
+          box-sizing: border-box;
+          font-size: 14px;
+          line-height: normal;
+          color: var(--butterbar-primary);
+          &:before {
+            border-bottom: 8px solid var(--blue-light);
+            position: absolute;
+            top: -8px;
+            display: block;
+            width: 0;
+            height: 0;
+            content: "";
+            border-right: 8px solid transparent;
+            border-left: 8px solid transparent;
+            left: 16.2px;
+          }
+        }
+        .checkboxWrapper {
+          position: relative;
+        }
+        img {
+          cursor: pointer;
+        }
+      }
+    }
+    .videoWindow {
+      padding: 72px 60px;
+      background-color: rgba(var(--black-rgb), 0.025);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .playVideoButton {
+        background-color: rgba(var(--black-rgb), 0.45);
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        z-index: 2;
+        cursor: pointer;
+        &:hover {
+          background-color: rgba(var(--black-rgb), 0.6);
+        }
+        .playVideoIcon {
+          margin-left: 7px;
+        }
+      }
+      img {
+        position: relative;
+      }
+    }
+  }
+}

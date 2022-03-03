@@ -1,0 +1,11 @@
+{
+  "authPage": {
+    "h1": "Log in to Telegram by QR Code",
+    "ol": {
+      "li1": "Open Telegram on your phone",
+      "li2": "Go to <1>Settings</1> > <1>Devices</1> > <1>Link Desktop Device</1>",
+      "li3": "Point your phone at this screen to confirm login"
+    },
+    "button": "LOG IN BY PHONE NUMBER"
+  }
+}
