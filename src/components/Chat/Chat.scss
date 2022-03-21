@@ -1,0 +1,74 @@
+.chatWrapper {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 59px;
+    width: 100%;
+    padding: 10px 16px;
+    background-color: var(--panel-header-background);
+    border-left: 1px solid var(--primary);
+    .userPhotoAndName {
+      display: flex;
+      button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        margin-right: 15px;
+        .chatUserPhoto{
+          border-radius: 50%;
+          background-size: contain;
+          height: 40px;
+          width: 40px;
+        }
+        .chatUserIcon {
+          color: var(--avatar-icon-color);
+          width: 40px;
+          height: 40px;
+        }
+      }
+      button{
+        .userName {
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 21px;
+          color: var(--primary-strong);
+          white-space: nowrap;
+        }
+      }
+    }
+    .actionsWithChat {
+      margin-left: 20px;
+      button {
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        svg {
+          color: var(--icons-color-header-panel);
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+  }
+  main {
+    border-left: 1px solid var(--border-stronger);
+    height: 100%;
+    width: 100%;
+    padding-bottom: 8px;
+    background-color: var(--chat-background);
+    .messagesWrapper {
+      width: 100%;
+      .scroll {
+        .messagesSpace {
+          flex: 1 1 auto;
+          min-height: 12px;
+        }
+      }
+    }
+  }
+}

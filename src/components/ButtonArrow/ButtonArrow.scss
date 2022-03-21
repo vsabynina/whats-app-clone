@@ -1,0 +1,28 @@
+%button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.arrowIconWrapper {
+  @extend %button;
+  width: 42px;
+  height: 27px;
+  position: absolute;
+  color: #8696a0;
+  opacity: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  top: 8px;
+  right: -10px;
+  span {
+    padding-right: 3px;
+    padding-left: 3px;
+    svg {
+      transform: rotate(90deg);
+      width: 18px;
+      height: 18px;
+    }
+  }
+}

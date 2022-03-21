@@ -1,0 +1,31 @@
+%button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.protectionButtonWrapper {
+  padding-right: 9%;
+  padding-left: 9%;
+  margin-bottom: 12px;
+  .protectionButton {
+    @extend %button;
+    background-color: var(--notification-e2e-background);
+    margin-bottom: 0;
+    padding: 5px 12px 6px;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(var(--inverse-rgb),.4);
+    border-radius: 7.5px;
+    box-shadow: 0 1px 0.5px rgba(var(--shadow-rgb),.13);
+    p {
+      font-size: 12.5px;
+      line-height: 21px;
+      color: var(--system-message-text);
+      margin: 0;
+      span {
+        margin: 4px 4px 0 0;
+        color: var(--system-message-text);
+      }
+    }
+  }
+}

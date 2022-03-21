@@ -1,7 +1,5 @@
-import React, { useState } from "react";
+import React, {useRef} from "react";
 import "./ChatPage.scss";
-import connectingPhone from "src/assets/images/connectingPhone.jpg";
-import { ReactComponent as LaptopIcon } from "src/assets/icons/ChatPage/laptopIcon.svg";
 import { ReactComponent as UserIcon } from "src/assets/icons/ChatPage/userIcon.svg";
 import { ReactComponent as StatusIcon } from "src/assets/icons/ChatPage/statusIcon.svg";
 import { ReactComponent as NewChatIcon } from "src/assets/icons/ChatPage/newChatIcon.svg";
@@ -10,13 +8,29 @@ import { ReactComponent as NotificationIcon } from "src/assets/icons/ChatPage/no
 import { ReactComponent as ArrowIcon } from "src/assets/icons/ChatPage/arrowIcon.svg";
 import { ReactComponent as SearchIcon } from "src/assets/icons/ChatPage/searchIcon.svg";
 import { ReactComponent as ArrowSearchIcon } from "src/assets/icons/ChatPage/arrowSearchIcon.svg";
+import Dialog from "src/components/Dialog";
+import clsx from "clsx";
+import {chats} from "src/mock";
+import ChatPageWelcome from "src/pages/ChatPageWelcome";
+import Chat from "src/components/Chat";
+import DropdownActions from "src/components/DropdownActions";
+import { v4 as uuid4 } from 'uuid';
+import {useActions, useTypedSelector} from "src/hooks";
+import ProtectionModal from "src/components/ProtectionModal";
 
 const ChatPage: React.VFC = () => {
-  const [isFocused, setIsFocused] = useState(false);
+  const {focus, defocus} = useActions();
+  const {isFocused, isChatShown} = useTypedSelector(state => state);
+
+  const inputElement = useRef<HTMLInputElement>(null);
 
   return (
-    <div className="wrapperChatPage">
-      <div className="leftBar">
+    <div className='wrapperChatPage'>
+      <DropdownActions />
+      <ProtectionModal />
+
+      <div className="chat">
+        <div className="leftBar">
         <div className="panelHeader">
           <button>
             <UserIcon className="userIcon" />
@@ -54,56 +68,49 @@ const ChatPage: React.VFC = () => {
 
         <div className="findChatDiv">
           <label className="findChatInput">
-            <span className={isFocused ? "hideOpacity" : ""}>
+            <span className={clsx(isFocused && 'hideOpacity')}>
               Поиск или новый чат
             </span>
-            <button>
-              <div>
-                <ArrowSearchIcon
-                  className={
-                    isFocused ? "showArrowSearchIcon" : " hideArrowSearchIcon"
-                  }
-                />
 
-                <SearchIcon
-                  className={isFocused ? " hideSearchIcon" : "showSearchIcon"}
-                />
-              </div>
+            <button onClick={() => {
+              isFocused ? defocus() : focus();
+            }}>
+              <ArrowSearchIcon className={clsx(isFocused ? "showArrowSearchIcon" : "hideArrowSearchIcon")}/>
+              <SearchIcon className={clsx(isFocused ? "hideSearchIcon" : "showSearchIcon")}/>
             </button>
+
             <input
               type="text"
-              onFocus={() => setIsFocused((prevState) => !prevState)}
+              onFocus={focus}
               onBlur={(e) => {
-                setIsFocused(false);
+                defocus();
                 e.target.value = "";
               }}
+              ref={inputElement}
             />
           </label>
         </div>
+
+        <div className='dialogs'>
+          {chats.map((item, index) =>{
+            return <Dialog
+                key={item.messages.find(el => el.userId !== 'authorizedUser.userId')?.userId || uuid4()}
+                id={item.messages.find(el => el.userId !== 'authorizedUser.userId')?.userId || uuid4()}
+                userName={item.messages.find(el => el.userName !== 'authorizedUser.userName')?.userName || `Contact ${index}`}
+                userPhoto={item.messages.find(el => el.userPhoto !== 'authorizedUser.userPhoto')?.userPhoto}
+                messageTime={item.lastUpdate}
+                message={item.messages.find(el => el.messageTime === item.lastUpdate)?.message || ''}
+            />
+          })}
+        </div>
       </div>
 
-      <div className="rightBar">
-        <div className="welcomingDiv">
-          <img src={connectingPhone} />
-          <div className="textWrapper">
-            <h1>Не отключайте свой телефон</h1>
-            <p>
-              WhatsApp подключается к вашему телефону, чтобы синхронизировать
-              сообщения. Чтобы снизить трафик данных, подключите телефон к
-              Wi-Fi.
-            </p>
-            <div className="textSeparator"></div>
-            <div className="downloadAppWrapper">
-              <LaptopIcon className="laptopIcon" />
-              <div className="downloadApp">
-                Звоните с компьютера при помощи WhatsApp для Windows.{" "}
-                <a href="https://www.whatsapp.com/download" target="_blank">
-                  Скачайте здесь
-                </a>
-                .
-              </div>
-            </div>
-          </div>
+        <div className='rightBar'>
+          {
+            isChatShown ?
+              <Chat /> :
+              <ChatPageWelcome/>
+          }
         </div>
       </div>
     </div>

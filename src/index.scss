@@ -1,8 +1,10 @@
 body {
   margin: 0;
   font-family: "Segoe UI", "Helvetica Neue", sans-serif;
-  background-color: #0a1014;
+  background-color: var(--app-background);
+  background-image: linear-gradient(180deg,var(--app-background),var(--primary));
 }
+
 body * {
   box-sizing: border-box;
 }
@@ -10,6 +12,13 @@ body * {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+%button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
 :root {
@@ -306,22 +315,44 @@ code {
   --gray-850-rgb: 17, 27, 33;
   --gray-900-rgb: 17, 27, 33;
   /**/
-  --intro-background: #222e35;
-  --primary-title: rgba(233, 237, 239, 0.88);
-  --intro-secondary: #8696a0;
+  --intro-background: #F8F8F8;
+  --primary-title: #41525d;
+  --primary-strong: #111b21;
+  --intro-secondary: #667781;
   --teal-lighter: #00a884;
-  --white: #fff;
+  --white: 255, 255, 255;
   --gray-700: #3b4a54;
   --teal: #008069;
   --black-rgb: 11, 20, 26;
   --blue-light: #009de2;
   --primary: #d1d7db;
   --border-default: rgba(134, 150, 160, 0.15);
-  --panel-header-background: #202c33;
+  --panel-header-background: #f0f2f5;
   --avatar-placeholder-background: #6a7175;
   --butterbar-notification-icon: #53bdeb;
-  --icons-color-header-panel: #aebac1;
+  --icons-color-header-panel: #54646F;
   --butterbar-default-background: #182229;
-  --butterbar-primary: #e9edef;
-  --search-input-container-background: #111b21;
+  --app-background:#eae6df;
+  --app-background-stripe: #00A884;
+  --shadow-rgb: 11,20,26;
+  --secondary-lighter: #8696a0;
+  --border-stronger: #e9edef;
+  --border-bottom-chat-page:#23D366;
+  --butterbar-secondary: #202c33;
+  --input-placeholder: #667781;
+  --input-background: #EFF2F5;
+  --dropdown-background-hover: #f5f6f6;
+  --avatar-icon-color: #DFE5E7;
+  --system-message-text: #54656f;
+  --notification-e2e-background: #ffeecd;
+  --outgoing-background: 217, 253, 211;
+  --viewed-message: #53bdeb;
+  --system-message-background: hsla(0,0%,100%,0.95);
+  --danger: #ea0038;
+  --modal-backdrop: hsla(0,0%,100%,0.85);
+  --link: #027eb5;
+  --button-box-shadow: 0px 2px 7px rgba(var(--shadow-rgb), 0.09), 0px 1px 2px rgba(var(--shadow-rgb), 0.05);
+  --button-background-color-protection-modal: #008069;
+  --button-background-color-protection-modal-hover: #017561;
+  --chat-background: #EFEAE2;
 }

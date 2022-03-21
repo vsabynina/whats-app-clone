@@ -1,0 +1,60 @@
+@keyframes showDropdown {
+  from {
+    opacity: 0;
+    transform: scale(0);
+    display: none;
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    display: block;
+  }
+}
+
+@keyframes hideDropdown {
+  from {
+    opacity: 1;
+    transform: scale(1);
+    display: block;
+  }
+  to {
+    opacity: 0;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+
+.hideDropdownActionsWithDialog {
+  animation: hideDropdown .2s forwards;
+}
+.showDropdownActionsWithDialog {
+  animation: showDropdown .2s forwards;
+}
+.dropdownActionsWithDialog {
+  padding: 9px 0;
+  background-color: rgb(var(--white));
+  border-radius: 3px;
+  box-shadow: 0 2px 5px 0 rgba(var(--shadow-rgb),.26),0 2px 10px 0 rgba(var(--shadow-rgb),.16);
+  position: absolute;
+  z-index: 1000;
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    li {
+      padding-right: 58px;
+      padding-left: 24px;
+      padding-top: 13px;
+      cursor: pointer;
+      box-sizing: border-box;
+      display: block;
+      height: 40px;
+      font-size: 14.5px;
+      line-height: 14.5px;
+      color: var(--gray-700);
+      &:hover {
+        background-color: var(--dropdown-background-hover);
+      }
+    }
+  }
+}

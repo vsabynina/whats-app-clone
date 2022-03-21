@@ -21,12 +21,13 @@
     min-height: 39px;
     display: flex;
     align-items: center;
+    z-index: 2;
     .headerTitle {
       margin-left: 14px;
       font-size: 14px;
       font-weight: 500;
       line-height: normal;
-      color: var(--white);
+      color: rgb(var(--white));
       text-transform: uppercase;
       vertical-align: middle;
     }
@@ -34,7 +35,7 @@
   .window {
     margin-right: auto;
     margin-left: auto;
-    background-color: var(--white);
+    background-color: rgb(var(--white));
     border-radius: 3px;
     box-shadow: 0 17px 50px 0 rgba(11, 20, 26, 0.19),
       0 12px 15px 0 rgba(11, 20, 26, 0.24);
@@ -51,11 +52,11 @@
       justify-content: space-between;
       .textWrapper {
         .h1Main {
-          margin-bottom: 52px;
           font-size: 28px;
           font-weight: 300;
           line-height: normal;
           color: #41525d;
+          margin: 0 0 52px 0;
         }
         ol {
           padding: 0 0 0 24px;
@@ -115,7 +116,7 @@
           box-sizing: border-box;
           font-size: 14px;
           line-height: normal;
-          color: var(--butterbar-primary);
+          color: var(--primary-strong);
           &:before {
             border-bottom: 8px solid var(--blue-light);
             position: absolute;

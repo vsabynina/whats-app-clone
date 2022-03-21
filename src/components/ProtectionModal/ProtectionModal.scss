@@ -1,0 +1,124 @@
+@keyframes showProtectionModal {
+  from {
+    transform: scale(0);
+    display: none;
+  }
+  to {
+    transform: scale(1);
+    display: block;
+  }
+}
+
+@keyframes hideProtectionModal {
+  from {
+    transform: scale(1);
+    display: block;
+  }
+  to {
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+
+@keyframes showProtectionModalWrapper {
+  from {
+    opacity: 0;
+    display: none;
+  }
+  to {
+    opacity: 1;
+    display: flex;
+  }
+}
+
+@keyframes hideProtectionModalWrapper {
+  from {
+    opacity: 1;
+    display: flex;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.protectionModalWrapper {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 748px;
+  height: 600px;
+  min-height: 100%;
+  background-color: var(--modal-backdrop);
+  position: fixed;
+  top: 0;
+  z-index: 10000;
+  &.showProtectionModalWrapper {
+    animation: showProtectionModalWrapper .6s forwards;
+  }
+  &.hideProtectionModalWrapper {
+    animation: hideProtectionModalWrapper .6s forwards;
+  }
+  .protectionModal {
+    padding: 22px 24px 20px;
+    background-color: rgb(var(--white));
+    border-radius: 3px;
+    box-shadow: 0 17px 50px 0 rgba(var(--shadow-rgb),.19),0 12px 15px 0 rgba(var(--shadow-rgb),.24);
+    z-index: 10000;
+    &.showProtectionModal {
+      animation: showProtectionModal .2s forwards;
+    }
+    &.hideProtectionModal {
+      animation: hideProtectionModal .2s forwards;
+    }
+    h1 {
+      font-size: 20px;
+      line-height: 25px;
+      font-weight: 400;
+      text-align: left;
+      overflow-wrap: break-word;
+      white-space: normal;
+      margin: 0 0 20px 0;
+      color: #3b4a54;
+    }
+    p {
+      margin: 0 0 50px 0;
+      font-size: 14.2px;
+      line-height: 20px;
+      color: #3b4a54;
+      a {
+        color: var(--link);
+        text-decoration: none;
+      }
+    }
+    .buttonWrapper {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      button {
+        background-color: var(--button-background-color-protection-modal);
+        box-shadow: var(--button-box-shadow);
+        padding: 10px 24px;
+        border: 1px solid transparent;
+        border-radius: 3px;
+        margin-bottom: 5px;
+        margin-right: 5px;
+        color: rgb(var(--white));
+        font-size: 14px;
+        text-transform: uppercase;
+        transition: box-shadow .18s ease-out, background .18s ease-out, color .18s ease-out;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: 1.25px;
+        white-space: pre-wrap;
+        cursor: pointer;
+        &:hover {
+          background-color: var(--button-background-color-protection-modal-hover);
+        }
+      }
+    }
+  }
+}

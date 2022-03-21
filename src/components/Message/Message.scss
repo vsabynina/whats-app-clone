@@ -1,0 +1,112 @@
+@keyframes showArrowIcon {
+  from {
+    opacity: 0;
+    right: -10px;
+  }
+  to {
+    opacity: .8;
+    right: 5px;
+  }
+}
+
+@keyframes hideArrowIcon {
+  from {
+    opacity: .8;
+    right: 5px;
+  }
+  to {
+    opacity: 0;
+    right: -10px;
+  }
+}
+
+%arrowMessage {
+  position: absolute;
+  top: -2px;
+  z-index: 100;
+  display: block;
+  width: 8px;
+  height: 13px;
+}
+
+%divMessage {
+  height: 100%;
+  box-shadow: 0 1px 0.5px rgba(var(--shadow-rgb),.13);
+  position: relative;
+  padding: 6px 7px 8px 9px;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.messageWrapper {
+  padding-right: 9%;
+  padding-left: 9%;
+  margin-bottom: 12px;
+  display: flex;
+  .message {
+    position: relative;
+    max-width: 65%;
+    width: fit-content;
+    .arrowMessageFromUser {
+      @extend %arrowMessage;
+      color: rgb(var(--white));
+      left: -8px;
+    }
+    .arrowMessageFromAuthorizedUser {
+      @extend %arrowMessage;
+      color: rgb(var(--outgoing-background));
+      right: -8px;
+    }
+    .divMessageFromAuthorizedUser {
+      @extend %divMessage;
+      background-color: rgb(var(--outgoing-background));
+    }
+    .divMessageFromUser {
+      @extend %divMessage;
+      background-color: rgb(var(--white));
+    }
+    .divFirstMessageFromAuthorizedUserBorder {
+      border-radius: 7.5px 0 7.5px 7.5px;
+    }
+    .divFirstMessageFromUserBorder {
+      border-radius: 0 7.5px 7.5px 7.5px;
+    }
+    .divMessageBorder {
+      border-radius: 7.5px;
+    }
+    .pWrapper {
+      display: flex;
+      .messageSpace {
+          width: 72px;
+        }
+      }
+      p {
+        font-size: 14.2px;
+        line-height: 19px;
+        color: var(--primary-strong);
+        margin: 0;
+      }
+      .messageInformation {
+        float: right;
+        display: flex;
+        margin: -10px 0 -5px 4px;
+        p {
+          line-height: 17px;
+          white-space: nowrap;
+          font-size: 0.6875rem;
+          color: var(--secondary-lighter);
+          height: 15px;
+        }
+        span {
+          color: var(--viewed-message);
+          margin-left: 3px;
+        }
+      }
+    &:hover .buttonArrow {
+      animation: showArrowIcon .1s forwards;
+    }
+    & .buttonArrow {
+      animation: hideArrowIcon .1s forwards;
+    }
+  }
+}

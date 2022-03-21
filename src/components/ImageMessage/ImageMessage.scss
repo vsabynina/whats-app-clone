@@ -1,0 +1,162 @@
+@keyframes showGradientAndArrow {
+  from {
+    opacity: 0;
+    right: 0px;
+  }
+  to {
+    opacity: 1;
+    right: 5px;
+  }
+}
+
+@keyframes hideGradientAndArrow {
+  from {
+    opacity: 1;
+    right: 5px;
+  }
+  to {
+    opacity: 0;
+    right: 0px;
+  }
+}
+
+%arrowMessage {
+  position: absolute;
+  top: 0;
+  z-index: 100;
+  display: block;
+  width: 8px;
+  height: 13px;
+}
+
+%divMessage {
+  box-shadow: 0 1px 0.5px rgba(var(--shadow-rgb),.13);
+  border-radius: 7.5px;
+  position: relative;
+}
+
+%button {
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+  border-color: transparent;
+  border-width: 0px;
+}
+
+.imageMessageWrapper {
+  margin-bottom: 2px;
+  padding-right: 9%;
+  padding-left: 9%;
+  display: flex;
+  align-items: flex-start;
+  .imageMessage {
+    margin-bottom: 0;
+    position: relative;
+    flex: none;
+    font-size: 14.2px;
+    line-height: 19px;
+    color: var(--primary-strong);
+    .arrowMessageFromUser {
+      @extend %arrowMessage;
+      left: -8px;
+      color: rgb(var(--white));
+    }
+    .arrowMessageFromAuthorizedUser {
+      @extend %arrowMessage;
+      right: -8px;
+      color: rgb(var(--outgoing-background));
+    }
+    .divImageMessageFromAuthorizedUser {
+      @extend %divMessage;
+      background-color: rgb(var(--outgoing-background));
+    }
+    .divImageMessageFromUser {
+      @extend %divMessage;
+      background-color: rgb(var(--white));
+    }
+    .divFirstImageMessageFromAuthorizedUserBorder {
+      border-radius: 7.5px 0 7.5px 7.5px;
+    }
+    .divFirstImageMessageFromUserBorder {
+      border-radius: 0 7.5px 7.5px 7.5px;
+    }
+    .divImageMessageBorder {
+      border-radius: 7.5px;
+    }
+    .imageWrapper {
+      padding: 3px;
+      max-width: 246px;
+      .buttonImage {
+        @extend %button;
+        position: relative;
+        width: 240px;
+        height: 338.028px;
+        border-radius: 6px;
+        background-image: url("../../../src/assets/images/imageButton.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        .gradientBottomImage {
+          background: linear-gradient(0deg,rgba(var(--shadow-rgb),.3),rgba(var(--shadow-rgb),0));
+          position: absolute;
+          bottom: 0;
+          z-index: 2;
+          width: 100%;
+          height: 28px;
+          border-radius: 0 0 6px 6px;
+        }
+        .infoImageMessage {
+          display: flex;
+          align-items: center;
+          position: absolute;
+          bottom: 6px;
+          right: 8px;
+          span {
+            line-height: 17px;
+            color: rgba(var(--white),.9);
+            white-space: nowrap;
+            font-size: 0.6875rem;
+            height: 15px;
+            //position: absolute;
+            //right: 8px;
+            //bottom: 6px;
+          }
+          .viewedMessageIcon {
+            margin-left: 3px;
+            color: var(--viewed-message);
+          }
+        }
+      }
+      .gradientTopImage {
+        right: 3px;
+        border-top-right-radius: 6px;
+        cursor: pointer;
+        background: linear-gradient(15deg,rgba(var(--shadow-rgb),0),rgba(var(--shadow-rgb),0) 45%,rgba(var(--shadow-rgb),.12) 70%,rgba(var(--shadow-rgb),.33));
+        position: absolute;
+        top: 3px;
+        z-index: 800;
+        width: 156px;
+        max-width: 90%;
+        height: 40px;
+        overflow: hidden;
+        pointer-events: all;
+        .buttonArrow {
+          width: 18px;
+          height: 18px;
+          color: rgb(var(--white));
+        }
+      }
+      &:hover .gradientTopImage {
+        animation: showGradientAndArrow .1s forwards;
+      }
+      &:hover .buttonArrow {
+        animation: showGradientAndArrow .1s forwards;
+      }
+      & .gradientTopImage, .buttonArrow {
+        animation: hideGradientAndArrow .1s forwards;
+      }
+      & .buttonArrow {
+        animation: hideGradientAndArrow .1s forwards;
+      }
+    }
+  }
+}
