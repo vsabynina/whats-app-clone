@@ -1,0 +1,113 @@
+%button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.statusWindow {
+  &.hideStatusWindow {
+    display: none;
+  }
+  background-color: var(--status-background);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 10000;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .statusWindowWrapper {
+    display: flex;
+    width: 1396px;
+    height: calc(100% - 38px);
+    margin-right: auto;
+    margin-left: auto;
+    .leftBar{
+      background-color: rgba(var(--white),.08);
+      width: 30%;
+      height: 100%;
+      padding-top: 34px;
+      .userInfo {
+        display: flex;
+        align-items: center;
+        .userIconWrapper {
+          width: 68px;
+          height: 64px;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0;
+          .dialogUserIcon {
+            color: var(--avatar-icon-color);
+            width: 40px;
+            height: 40px;
+          }
+          .dialogUserPhoto {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-size: contain;
+          }
+        }
+        .textWrapper {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          flex-direction: column;
+          height: 36px;
+          h1 {
+            font-size: 16px;
+            color: rgb(var(--white));
+            font-weight: 400;
+            margin: 0;
+          }
+          p {
+            font-size: 13px;
+            color: var(--status-secondary);
+            margin: 0;
+          }
+        }
+      }
+    }
+    .rightBar {
+      width: 70%;
+      align-items: center;
+      display: flex;
+      position: relative;
+      .closeButton {
+        @extend %button;
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        color: rgb(var(--white));
+      }
+      .statusInfoWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+        .statusIconWrapper {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          margin-bottom: 40px;
+          color: rgba(var(--white),.4);
+          pointer-events: none;
+          svg {
+            width: 80px;
+            height: 80px;
+          }
+        }
+        p {
+          line-height: 24px;
+          color: var(--status-secondary);
+          text-align: center;
+          margin: 0;
+        }
+      }
+    }
+  }
+}

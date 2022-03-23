@@ -1,6 +1,7 @@
 import {RootActionTypes} from "src/store/types";
+import {validate} from "uuid";
 
-export const showDropdown = (top: number, right: number | string, left: number | string, xSpace: number, ySpace: number) => {
+export const showDropdown = (top: number, right: number | string, left: number | string, xSpace = 0 , ySpace = 0) => {
     return {
         type: RootActionTypes.SHOW_DROPDOWN,
         payload: {
@@ -96,9 +97,23 @@ export const setIsDropdownForAuthorizedUser = (value: boolean) => {
     }
 }
 
-export const setIsDropdownForUser = (value:boolean) => {
+export const setIsDropdownForUser = (value: boolean) => {
     return {
         type: RootActionTypes.SET_IS_DROPDOWN_FOR_USER,
+        payload: value,
+    }
+}
+
+export const setIsDropdownForImageMessage = (value: boolean) => {
+    return {
+        type: RootActionTypes.SET_IS_DROPDOWN_FOR_IMAGE_MESSAGE,
+        payload: value,
+    }
+}
+
+export const setIsUserStatusWindowShown = (value: boolean) => {
+    return {
+        type: RootActionTypes.SET_IS_USER_STATUS_WINDOW_SHOWN,
         payload: value,
     }
 }

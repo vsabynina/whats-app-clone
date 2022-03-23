@@ -5,6 +5,9 @@
   padding: 0;
 }
 .protectionButtonWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding-right: 9%;
   padding-left: 9%;
   margin-bottom: 12px;

@@ -5,11 +5,13 @@ const initialState: IRootState = {
     isFocused: false,
     isChatShown: false,
     isProtectionModalShown: false,
+    isUserStatusWindowShown: false,
     isMessageFromAuthorizedUser: false,
     isDropdownForDialog: false,
     isDropdownForChatMessage: false,
     isDropdownForAuthorizedUser: false,
     isDropdownForUser: false,
+    isDropdownForImageMessage: false,
     coordinates: {
         top: '',
         right: '',
@@ -34,6 +36,13 @@ const initialState: IRootState = {
         ],
         forChatMessage: [
             'Ответить',
+            'Переслать сообщение',
+            'Добавить сообщение в Избранные',
+            'Удалить собщение',
+        ],
+        forImageMessage: [
+            'Ответить',
+            'Загрузить',
             'Переслать сообщение',
             'Добавить сообщение в Избранные',
             'Удалить собщение',
@@ -140,6 +149,7 @@ export const rootReducer = (
                 isDropdownForChatMessage: false,
                 isDropdownForAuthorizedUser: false,
                 isDropdownForUser: false,
+                isDropdownForImageMessage: false,
             }
 
         case RootActionTypes.SET_IS_DROPDOWN_FOR_CHAT_MESSAGE:
@@ -149,6 +159,7 @@ export const rootReducer = (
                 isDropdownForChatMessage: true,
                 isDropdownForAuthorizedUser: false,
                 isDropdownForUser: false,
+                isDropdownForImageMessage: false,
             }
 
         case RootActionTypes.SET_IS_DROPDOWN_FOR_AUTHORIZED_USER:
@@ -158,6 +169,7 @@ export const rootReducer = (
                 isDropdownForChatMessage: false,
                 isDropdownForAuthorizedUser: true,
                 isDropdownForUser: false,
+                isDropdownForImageMessage: false,
             }
 
         case RootActionTypes.SET_IS_DROPDOWN_FOR_USER:
@@ -167,6 +179,23 @@ export const rootReducer = (
                 isDropdownForChatMessage: false,
                 isDropdownForAuthorizedUser: false,
                 isDropdownForUser: true,
+                isDropdownForImageMessage: false,
+            }
+
+        case RootActionTypes.SET_IS_DROPDOWN_FOR_IMAGE_MESSAGE:
+            return {
+                ...state,
+                isDropdownForDialog: false,
+                isDropdownForChatMessage: false,
+                isDropdownForAuthorizedUser: false,
+                isDropdownForUser: false,
+                isDropdownForImageMessage: true,
+            }
+
+        case RootActionTypes.SET_IS_USER_STATUS_WINDOW_SHOWN:
+            return {
+                ...state,
+                isUserStatusWindowShown: action.payload,
             }
 
         default:

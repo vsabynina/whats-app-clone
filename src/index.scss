@@ -3,10 +3,16 @@ body {
   font-family: "Segoe UI", "Helvetica Neue", sans-serif;
   background-color: var(--app-background);
   background-image: linear-gradient(180deg,var(--app-background),var(--primary));
+  height: 100%;
+}
+
+html {
+  height: 100%;
 }
 
 body * {
   box-sizing: border-box;
+  //border: black 1px solid;
 }
 
 code {
@@ -23,7 +29,6 @@ code {
 
 :root {
   --secondary-page-color: #fff;
-
   --wds-pink-50: #fff5f8;
   --wds-pink-50-rgb: 255, 245, 248;
   --wds-pink-75: #ffebf1;
@@ -355,4 +360,7 @@ code {
   --button-background-color-protection-modal: #008069;
   --button-background-color-protection-modal-hover: #017561;
   --chat-background: #EFEAE2;
+  --incoming-primary: #888d90;
+  --status-background: #0b141a;
+  --status-secondary: hsla(0,0%,100%,0.55)
 }

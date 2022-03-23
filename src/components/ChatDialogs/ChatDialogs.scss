@@ -1,0 +1,15 @@
+.dialogs {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 692px;
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(var(--black-rgb),.2);
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(var(--white),.1);
+  }
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+}

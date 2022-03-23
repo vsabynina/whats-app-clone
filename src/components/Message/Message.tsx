@@ -82,6 +82,7 @@ const Message: React.FC<IProps> = (props) => {
                             styleMessageFromUser
                     }
                     isMessageFromAuthorizedUser={isMessageFromAuthorizedUser}
+                    showDropdownFor='chatMessage'
                 />
             </div>
         </div>

@@ -1,0 +1,38 @@
+.notificationDiv {
+  background-color: var(--butterbar-notification-icon);
+  padding: 13px 12px 14px 13px;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  svg {
+    color: rgb(var(--white));
+    margin-right: 15px;
+  }
+  .notificationText {
+    h1 {
+      font-size: 16px;
+      line-height: 21px;
+      color: var(--primary-strong);
+      margin: 0;
+      font-weight: 400;
+    }
+    .enableNotifications {
+      display: flex;
+      align-items: center;
+      p {
+        font-size: 14px;
+        line-height: 19px;
+        color: var(--butterbar-secondary);
+        margin: 2px 0 0 0;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      svg {
+        color: var(--butterbar-secondary);
+        margin: 5px 0 0 3px;
+      }
+    }
+  }
+}

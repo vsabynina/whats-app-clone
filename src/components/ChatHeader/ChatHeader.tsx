@@ -3,6 +3,7 @@ import {ReactComponent as UserIcon} from "src/assets/icons/ChatPage/userIcon.svg
 import {ReactComponent as SearchIcon} from "src/assets/icons/Chat/searchIcon.svg";
 import {ReactComponent as MenuIcon} from "src/assets/icons/ChatPage/menuIcon.svg";
 import {useTypedSelector} from "src/hooks";
+import ButtonMenu from "src/components/ButtonMenu";
 
 const ChatHeader: React.VFC = () => {
     const {chatInfo} = useTypedSelector(state => state);
@@ -28,9 +29,7 @@ const ChatHeader: React.VFC = () => {
                     <SearchIcon/>
                 </button>
 
-                <button>
-                    <MenuIcon/>
-                </button>
+                <ButtonMenu showDropdownFor='user' />
             </div>
         </header>
     )

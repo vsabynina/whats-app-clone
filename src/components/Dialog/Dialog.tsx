@@ -64,6 +64,7 @@ const Dialog: React.FC<IProps> = (props) => {
             </div>
             <ButtonArrow
                 className='buttonArrow'
+                showDropdownFor='dialog'
             />
         </div>
     )

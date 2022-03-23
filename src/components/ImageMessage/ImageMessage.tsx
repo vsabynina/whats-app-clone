@@ -71,6 +71,7 @@ const ImageMessage: React.VFC<IProps> = (props) => {
                         <ButtonArrow
                             className='buttonArrow'
                             isMessageFromAuthorizedUser={isMessageFromAuthorizedUser}
+                            showDropdownFor='forImageMessage'
                         />
                     </div>
                 </div>

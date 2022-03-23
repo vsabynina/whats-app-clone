@@ -1,0 +1,40 @@
+.panelHeader {
+  padding: 10px 16px;
+  background-color: var(--panel-header-background);
+  width: 100%;
+  height: 59px;
+  display: flex;
+  justify-content: space-between;
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    height: 100%;
+    &:not(:first-child) {
+      width: 100%;
+    }
+  }
+  .userIcon {
+    height: 40px;
+    width: 40px;
+    color: var(--avatar-icon-color);
+  }
+  .iconWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & svg {
+      color: var(--icons-color-header-panel);
+      width: 24px;
+      height: 24px;
+    }
+    & button:first-child,
+    & button:last-child {
+      padding: 8px;
+    }
+    & button {
+      padding: 8px 18px;
+    }
+  }
+}

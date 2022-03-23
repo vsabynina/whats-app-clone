@@ -1,0 +1,46 @@
+@keyframes showButtonScrollTop {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes hideButtonScrollTop {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+
+
+.buttonScrollTop {
+  cursor: pointer;
+  background-color: rgb(var(--white));
+  border-radius: 50%;
+  box-shadow: 0 1px 1px 0 rgba(var(--shadow-rgb),.06),0 2px 5px 0 rgba(var(--shadow-rgb),.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: none;
+  color: var(--incoming-primary);
+  right: 155px;
+  position: fixed;
+  bottom: 100px;
+  svg {
+    width: 20px;
+    height: 19px;
+    transform: rotate(90deg);
+  }
+  &.showButtonScrollTop {
+    animation: showButtonScrollTop forwards .2s;
+  }
+  &.hideButtonScrollTop {
+    animation: hideButtonScrollTop forwards .2s;
+  }
+}

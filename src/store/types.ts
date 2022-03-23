@@ -4,6 +4,7 @@ export interface IRootState {
     isChatShown: boolean;
     isProtectionModalShown: boolean;
     isMessageFromAuthorizedUser: boolean;
+    isUserStatusWindowShown: boolean;
     coordinates: ICoordinates;
     chatInfo: IChatInfo;
     listsOfActions: IListsOfActions;
@@ -11,14 +12,15 @@ export interface IRootState {
     isDropdownForChatMessage: boolean,
     isDropdownForAuthorizedUser: boolean,
     isDropdownForUser: boolean,
+    isDropdownForImageMessage: boolean,
 }
 
 export interface ICoordinates {
     top: string;
     right: string;
     left: string;
-    xSpace: string;
-    ySpace: string;
+    xSpace?: string;
+    ySpace?: string;
 }
 
 interface IChatInfo {
@@ -32,6 +34,7 @@ interface IChatInfo {
 interface IListsOfActions {
     forDialog: Array<string>;
     forChatMessage: Array<string>;
+    forImageMessage: Array<string>;
     forAuthorizedUser: Array<string>;
     forUser: Array<string>;
 }
@@ -50,7 +53,9 @@ export type RootAction =
     ISetIsDropdownForDialog |
     ISetIsDropdownForChatMessage |
     ISetIsDropdownForAuthorizedUser |
-    ISetIsDropdownForUser;
+    ISetIsDropdownForUser |
+    ISetIsDropdownForImageMessage |
+    ISetIsUserStatusWindowShown;
 
 export enum RootActionTypes {
     SHOW_DROPDOWN = 'SHOW_DROPDOWN',
@@ -66,6 +71,8 @@ export enum RootActionTypes {
     SET_IS_DROPDOWN_FOR_CHAT_MESSAGE = 'SET_IS_DROPDOWN_FOR_CHAT_MESSAGE',
     SET_IS_DROPDOWN_FOR_AUTHORIZED_USER = 'SET_IS_DROPDOWN_FOR_AUTHORIZED_USER',
     SET_IS_DROPDOWN_FOR_USER = 'SET_IS_DROPDOWN_FOR_USER',
+    SET_IS_DROPDOWN_FOR_IMAGE_MESSAGE = 'SET_IS_DROPDOWN_FOR_IMAGE_MESSAGE',
+    SET_IS_USER_STATUS_WINDOW_SHOWN = 'SET_IS_USER_STATUS_WINDOW_SHOWN',
 }
 
 interface IShowDropdown {
@@ -74,8 +81,8 @@ interface IShowDropdown {
         top: string;
         right: string;
         left: string;
-        xSpace: string;
-        ySpace: string;
+        xSpace?: string;
+        ySpace?: string;
     }
 }
 
@@ -138,3 +145,14 @@ interface ISetIsDropdownForUser {
     type: RootActionTypes.SET_IS_DROPDOWN_FOR_USER,
     payload: boolean,
 }
+
+interface ISetIsDropdownForImageMessage {
+    type: RootActionTypes.SET_IS_DROPDOWN_FOR_IMAGE_MESSAGE,
+    payload: boolean,
+}
+
+interface ISetIsUserStatusWindowShown {
+    type: RootActionTypes.SET_IS_USER_STATUS_WINDOW_SHOWN,
+    payload: boolean,
+}
+
